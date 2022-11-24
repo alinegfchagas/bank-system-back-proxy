@@ -1,0 +1,45 @@
+
+
+
+### Create User
+POST http://localhost:3003/users/signup
+Content-Type: application/json
+
+{ 
+   "username": "Kalena",
+   "password": "Bananinha123"     
+}
+
+### Login User
+# @name login
+POST http://localhost:3003/users/login
+Content-Type: application/json
+                                                                                            
+{ 
+   "username": "joao",
+   "password": "Bananinha123"     
+}
+
+
+
+### Transaction 
+POST http://localhost:3003/transfer/exchange
+Authorization: {{login.response.body.token}}
+Content-Type: application/json
+
+{ 
+   "userNameAccount": "Kalena",
+   "value": 10    
+}
+
+
+
+### Get Transaction 
+GET http://localhost:3003/transfer/all-transaction
+Authorization: {{login.response.body.token}}
+
+
+
+### 
+GET http://localhost:3003/account
+Authorization: {{login.response.body.token}}
